@@ -1,0 +1,26 @@
+{{>layouts/header}}
+
+
+<table class="table">
+  회원 정보
+  <thead>
+  <tr>
+    <th scope="col">#id</th>
+    <th scope="col">#email</th>
+    <th scope="col">#password</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#member}}
+    <tr>
+      <th scope="row">{{id}}</th>
+      <td>{{email}}</td>
+      <td>{{password}}</td>
+    </tr>
+  {{/member}}
+  </tbody>
+</table>
+<a href="/members/{{member.id}}/edit" class="btn btn-primary">Edit</a>
+<a href="/members/{{member.id}}/delete" class="btn btn-primary">Delete</a>
+<a href="/members">목록</a>
+{{>layouts/footer}}
