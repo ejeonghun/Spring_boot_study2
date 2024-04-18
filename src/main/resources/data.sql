@@ -17,4 +17,9 @@ INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Park', '조깅');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Kim', '유튜브 시청');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, 'Choi', '독서');
 
+INSERT INTO pizza(id, name, price) VALUES(1,'페페로니 피자', 25000);
+INSERT INTO pizza(id, name, price) VALUES(2,'불고기 피자',29900);
+INSERT INTO pizza(id, name, price) VALUES(3,'고구마 피자', 30900);
+INSERT INTO pizza(id, name, price) VALUES(4,'포테이토 피자', 27900);
+INSERT INTO pizza(id, name, price) VALUES(5,'치트 피자', 23900);
 
