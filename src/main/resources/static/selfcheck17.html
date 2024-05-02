@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function() {
+        const btn = document.querySelector("#submitBtn");
+        btn.addEventListener("click", function() {
+            const element = document.getElementById('content');
+            const text_value = document.querySelector("#text_value").value;
+            element.innerHTML = "<h1>" +"Hello, " + text_value + "</h1>";
+        })
+    }
+</script>
+<body>
+<div id="content">
+    <h1 id="text">Hello, World!</h1>
+</div>
+<form>
+    <input type="text" id="text_value">
+    <input type="button" value="전송" id="submitBtn">
+</form>
+</body>
+</html>

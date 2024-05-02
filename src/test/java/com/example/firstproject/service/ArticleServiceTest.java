@@ -36,6 +36,24 @@ class ArticleServiceTest {
 
     @Transactional
     @Test
+    void create_5() { // id는 자동생성되는데 입력한 경우
+        // 1. 예상 데이터
+        Long id = 4L;
+        String title = "라라라라";
+        String content = "4444"; // id는 자동 생성되는데 입력한 경우
+        ArticleForm dto = new ArticleForm(id, title, content);
+        Article expected = null;// new Article(4L, title, content);
+        // ID는 자동 생성되는데
+
+        // 2. 실제 데이터
+        Article article = articleService.create(dto);
+
+        // 3. 비교 및 검증
+        assertEquals(expected.toString(), article.toString());
+    }
+
+    @Transactional
+    @Test
     void create_fail_test() {
         // 1. 예상 데이터
         Long id = 5L;

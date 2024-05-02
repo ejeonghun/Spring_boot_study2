@@ -23,3 +23,6 @@ INSERT INTO pizza(id, name, price) VALUES(3,'고구마 피자', 30900);
 INSERT INTO pizza(id, name, price) VALUES(4,'포테이토 피자', 27900);
 INSERT INTO pizza(id, name, price) VALUES(5,'치트 피자', 23900);
 
+INSERT INTO pizza_comment(id, body, nickname) VALUES(2, '너무 맛있어요', 'park');
+INSERT INTO pizza_comment(id, body, nickname) VALUES(5, '가격대비 좋아요', 'kim');
+INSERT INTO pizza_comment(id, body, nickname) VALUES(4, '감동', 'choi');

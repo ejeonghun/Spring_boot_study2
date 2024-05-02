@@ -26,6 +26,7 @@ public class ArticleService {
     }
 
     public Article show(Long id) {
+
         return articleRepository.findById(id).orElse(null);
     }
 

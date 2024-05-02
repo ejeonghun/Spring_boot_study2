@@ -1,5 +1,6 @@
 {{>layouts/header}}
 
+<div class="container">
 <h3>상세페이지</h3>
 <table class="table">
   <thead>
@@ -22,5 +23,7 @@
 <a href="/articles/{{article.id}}/edit" class="btn btn-primary">Edit</a>
 <a href="/articles/{{article.id}}/delete" class="btn btn-danger">DELETE</a>
 <a href="/articles">Go to Article List</a>
+{{>comments/_comments}}
+</div>
 
 {{>layouts/footer}}

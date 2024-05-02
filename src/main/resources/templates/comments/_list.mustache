@@ -1,0 +1,91 @@
+<div id="comments-list">
+  <!-- 댓글 목록 순회 -->
+  {{#commentDtos}} <!-- 댓글 목록 리스트 -->
+    <div class="card m-2" id="comments-{{id}}">
+      <div class="card-header">
+        {{nickname}}
+        <!-- Button trigger modal -->
+        <button type="button"
+                class="btn btn-sm btn-outline-primary"
+                data-bs-toggle="modal"
+        data-bs-target="#comment-edit-modal">수정</button> <!-- comment-edit-modal id를 가진 모달 실행 -->
+      </div>
+
+      <div class="card-body">
+        {{body}}
+      </div>
+    </div>
+  {{/commentDtos}}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="comment-edit-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">댓글 수정</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- 닉네임 입력 -->
+          <div class="mb-3">
+            <label class="form-label">닉네임</label>
+            <input type="text" class="form-control"
+                   id="edit-comment-nickname">
+          </div>
+          <!-- 댓글 본문 입력 -->
+          <div class="mb-3">
+            <label class="form-label">댓글 내용</label>
+            <textarea type="text" class="form-control" rows="3"
+                      id="edit-comment-body"></textarea>
+          </div>
+          <!-- 히든 인풋 -->
+          <input type="hidden" id=“edit-comment--id">
+          <input type="hidden" id=“edit-comment-article-id">
+          <!-- 전송 버튼 -->
+          <button type="button" class="btn btn-primary"
+                  id="comment-update-btn">수정 완료</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  {
+    // 댓글 생성 버튼 변수화
+    const commentUpdateBtn = document.querySelector("#comment-update-btn");
+
+    // 댓글 생성 버튼 클릭 이벤트 리스너
+    commentUpdateBtn.addEventListener("click", function () {
+      console.log("버튼이 클릭되었습니다."); // 콘솔에 출력
+
+      // 댓글 객체 생성
+      const comment = {
+        nickname: document.querySelector("#edit-comment-nickname").value,
+        body: document.querySelector("#edit-comment-body").value,
+        articleId: document.querySelector("#edit-comment-article-id").value
+      };
+      // 댓글 객체 출력
+      console.log(comment);
+
+      // fetch() - 비동기 통신을 위한 API
+      const url = "/api/articles/" + comment.articleId + "/comments";
+      fetch(url, {
+        method: "post", // POST 요청
+        headers: { // 전송 본문의 데이터 타입 JSON 정보
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(comment) // comment 객체를 JSON 문자열로 변환해 전송
+      }).then(response => {
+        // HTTP 응답 코드에 따른 메세지 출력
+        const msg = (response.ok) ? "댓글이 등록됐습니다." : "댓글 등록 실패";
+        alert(msg);
+
+        // 현재 페이지 새로 고침
+        window.location.reload();
+      })
+    });
+  }
+</script>
