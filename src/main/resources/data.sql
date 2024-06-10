@@ -26,3 +26,5 @@ INSERT INTO pizza(id, name, price) VALUES(5,'치트 피자', 23900);
 INSERT INTO pizza_comment(id, body, nickname) VALUES(2, '너무 맛있어요', 'park');
 INSERT INTO pizza_comment(id, body, nickname) VALUES(5, '가격대비 좋아요', 'kim');
 INSERT INTO pizza_comment(id, body, nickname) VALUES(4, '감동', 'choi');
+
+INSERT INTO member(member_id, email, password) VALUES(1, 'test@naver.com', '1234');

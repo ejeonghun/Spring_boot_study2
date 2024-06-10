@@ -34,7 +34,7 @@ public class MemberController {
         log.info(member.toString());
         Member saved = memberRepository.save(member);
         log.info(saved.toString());
-        return "redirect:/members/detail/" + saved.getId();
+        return "redirect:/members/detail/" + saved.getMemberId();
     }
 
     @GetMapping("/members")
@@ -66,11 +66,11 @@ public class MemberController {
     public String update(MemberForm form) {
         log.info(form.getId() + "수정 요청");
         Member memEntity =form.toEntity();
-        Member data = memberRepository.findById(memEntity.getId()).orElse(null);
+        Member data = memberRepository.findById(memEntity.getMemberId()).orElse(null);
 
         if (data != null) memberRepository.save(memEntity);
         log.info(form.getId() + "수정 완료 DB 반영");
-        return "redirect:/members/detail/" + memEntity.getId();
+        return "redirect:/members/detail/" + memEntity.getMemberId();
     }
 
     @GetMapping("/members/{id}/delete")
